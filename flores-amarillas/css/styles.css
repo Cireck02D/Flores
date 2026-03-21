@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 50%, #fef5e7 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Contenedor de flores */
+#flowers-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*  FLORES */
+.flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+
+    /* animación flotante */
+    animation: float 6s ease-in-out infinite;
+
+    /* animación de entrada/salida */
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Estados dinámicos */
+.flower.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.flower.hide {
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* Pétalos */
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: radial-gradient(circle at 30% 30%, #ffeb3b, #fdd835);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    top: 1px;
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+.petal:nth-child(1) { transform: translateX(-50%) rotate(0deg) translateY(-15px); }
+.petal:nth-child(2) { transform: translateX(-50%) rotate(60deg) translateY(-15px); }
+.petal:nth-child(3) { transform: translateX(-50%) rotate(120deg) translateY(-15px); }
+.petal:nth-child(4) { transform: translateX(-50%) rotate(180deg) translateY(-15px); }
+.petal:nth-child(5) { transform: translateX(-50%) rotate(240deg) translateY(-15px); }
+.petal:nth-child(6) { transform: translateX(-50%) rotate(300deg) translateY(-15px); }
+
+/* Centro */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #ff9800, #f57c00);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(255, 152, 0, 0.7);
+    z-index: 2;
+}
+
+/* Tallo */
+.stem {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 45px;
+    background: linear-gradient(to top, #4caf50, #8bc34a);
+    border-radius: 3px 3px 1px 1px;
+    z-index: 1;
+}
+
+/* Animación flotante */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-25px) rotate(4deg); }
+    66% { transform: translateY(-12px) rotate(-2deg); }
+}
+
+/*  CONTENIDO */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    background: linear-gradient(45deg, #ffeb3b, #fdd835, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+.date {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    color: #ff9800;
+    font-weight: bold;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 1s forwards;
+}
+
+.message {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+
+    opacity: 1; 
+    white-space: pre-line;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #ffeb3b, #fdd835);
+    color: #333;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(255, 235, 59, 0.4);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 2s forwards;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 235, 59, 0.6);
+}
+
+/* Animación entrada contenido */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*  PARTÍCULAS */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #ffeb3b, #fdd835);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 235, 59, 0.8);
+    animation: sparkle 4s ease-out infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-60px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) translateY(-150px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(-250px);
+    }
+}
+
+/* ocultar mensaje al inicio */
+.hidden {
+    display: none;
+}
+
+/* animación de aparición */
+.show-message {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInMessage 1s ease forwards;
+}
+
+@keyframes fadeInMessage {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/*  Responsive */
+@media (max-width: 768px) {
+    .flower {
+        width: 50px;
+        height: 50px;
+    }
+
+    .petal {
+        width: 18px;
+        height: 26px;
+        top: 1px;
+    }
+}
+
+
