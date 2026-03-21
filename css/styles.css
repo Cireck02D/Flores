@@ -235,6 +235,10 @@ body {
 
 @media (max-width: 768px) {
     .flower {
-        transform: scale(0.8);
+        --scale: 0.7;
+    }
+
+    .title {
+        font-size: clamp(2rem, 6vw, 3.5rem);
     }
 }
