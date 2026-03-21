@@ -96,9 +96,9 @@ body {
 
 /* Animación flotante */
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-25px) rotate(4deg); }
-    66% { transform: translateY(-12px) rotate(-2deg); }
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(var(--scale, 1)); }
+    33% { transform: translateY(-25px) rotate(4deg) scale(var(--scale, 1)); }
+    66% { transform: translateY(-12px) rotate(-2deg) scale(var(--scale, 1)); }
 }
 
 /*  CONTENIDO */
@@ -231,17 +231,10 @@ body {
 
 
 /*  Responsive */
+
+
 @media (max-width: 768px) {
     .flower {
-        width: 50px;
-        height: 50px;
-    }
-
-    .petal {
-        width: 18px;
-        height: 26px;
-        top: 1px;
+        transform: scale(0.8);
     }
 }
-
-
