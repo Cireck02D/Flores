@@ -101,7 +101,7 @@ button.addEventListener('click', () => {
     if (started) return;
     started = true;
 
-    // 🎵 música
+    //  música
     music.volume = 0.3;
     music.play();
 
@@ -143,7 +143,7 @@ button.addEventListener('click', () => {
         }
     }
 
-    // 🧠 pausas más naturales (más lento)
+    //  p (más lento)
     function getDelay(char) {
         if (char === '.') return 900;
         if (char === ',') return 500;
