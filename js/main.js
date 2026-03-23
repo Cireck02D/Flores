@@ -129,7 +129,7 @@ button.addEventListener('click', () => {
         cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
     }, 500);
 
-    // ✍️ función de escritura
+    //  escritura
     function typeWriter() {
         if (index < fullText.length) {
             const char = fullText.charAt(index);
@@ -143,7 +143,7 @@ button.addEventListener('click', () => {
         }
     }
 
-    //  p (más lento)
+    //   (más lento)
     function getDelay(char) {
         if (char === '.') return 900;
         if (char === ',') return 500;
